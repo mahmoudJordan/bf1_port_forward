@@ -14,7 +14,7 @@ $UDP = @(3659, 4380, 14000,14016, 22990,23006, 25200,25300, 27000,27031, 27036)
 $ipV4addresses = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandProperty IPV4Address;
 $ipv4 = $ipV4addresses.IPAddressToString;
 
-// expiration for the entries 
+# expiration for the entries 
 $lease = 2592000 # 1 month
 
 if (Get-Command UPnPWizardC -errorAction SilentlyContinue)
