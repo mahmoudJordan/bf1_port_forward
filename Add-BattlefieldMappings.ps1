@@ -1,11 +1,10 @@
 . .\Get-ApplicationPath.ps1
 
 function addEntries($portsArray ,$ipv4, $TCPUDP , $UpnpWizardFolderPath){
-    $cliUpnpWizard = Join-Path -Path $UpnpWizardFolderPath -ChildPath "UPnPWizardC.exe"
-    Set-Location -Path $cliUpnpWizard
+    Set-Location -Path $UpnpWizardFolderPath
     foreach ( $entry in $portsArray)
     {
-        UPnPWizardC.exe -add bf1 -ip $ipv4 -intport $entry -extport $entry -protocol $TCPUDP -lease 2592000 
+        ./UPnPWizardC.exe -add bf1 -ip $ipv4 -intport $entry -extport $entry -protocol $TCPUDP -lease 2592000 
     }
 }
 
@@ -25,8 +24,8 @@ if ($wizardPath) {
    
     Write-Host "UPnP Wizard is installed..."
     Write-Host "Adding Entries"
-    addEntries -portsArray $TCP -ipv4 $ipv4 -TCPUDP TCP -UpnpWizardFolderPath $cliUpnpWizard
-    addEntries -portsArray $UDP -ipv4 $ipv4 -TCPUDP UDP -UpnpWizardFolderPath $cliUpnpWizard
+    addEntries -portsArray $TCP -ipv4 $ipv4 -TCPUDP TCP -UpnpWizardFolderPath $wizardPath
+    addEntries -portsArray $UDP -ipv4 $ipv4 -TCPUDP UDP -UpnpWizardFolderPath $wizardPath
     Write-Host "Finished"
 } else {
     Write-Host "UPnP Wizard is required but not installed, Please install it first https://www.xldevelopment.net/upnpwiz.php"
