@@ -1,0 +1,4 @@
+add documentation 
+check if the ports already forwareded
+try to remove the dependency on upnp wizard 
+try to add a pre-condition to the game
