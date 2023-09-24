@@ -1,4 +1,4 @@
-. .\scripts\Get-ApplicationPath.ps1
+. .\Get-ApplicationPath.ps1
 
 function addEntries($portsArray , $ipv4, $TCPUDP , $UpnpWizardFolderPath , $name) {
     Set-Location -Path $UpnpWizardFolderPath

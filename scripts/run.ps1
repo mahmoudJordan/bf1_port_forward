@@ -1,4 +1,6 @@
-. .\scripts\Set-Mappings.ps1
+Set-Location (Split-Path $MyInvocation.MyCommand.Path)
+
+. .\Set-Mappings.ps1
 
 $json = Get-Content -Path .\ports.json -Raw | ConvertFrom-Json
 
@@ -10,3 +12,5 @@ foreach ( $entry in $json)
 
 
 Write-Host "Finished adding all"
+
+[Console]::ReadKey()
