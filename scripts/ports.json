@@ -1,7 +1,7 @@
 [
     {
         "name": "bf1",
-        "source" : "tcp ports to forward found online for steam (https://portforward.com/battlefield-1/)",
+        "source" : "ports to forward found online (https://portforward.com/battlefield-1/)",
         "tcp": [
             5222,
             9988,
@@ -31,7 +31,7 @@
     },
     {
         "name": "mk11",
-        "source" :"udp ports to forward found online for steam(https://portforward.com/battlefield-1/)",
+        "source" :"ports to forward found online (https://portforward.com/mortal-kombat-11/)",
         "tcp": [
             27015,
             27036
