@@ -18,4 +18,4 @@ Regarding PowerShell script execution, it is crucial to exercise caution when ru
 
 Please review and understand the security implications before enabling UPnP and running PowerShell scripts. It is recommended to disable UPnP and maintain strict control over script execution policies unless you fully trust the source and understand the potential risks involved.
 
-We hope that this project enhances your Battlefield 1 gaming experience, but we strongly encourage you to prioritize your network security and take necessary precautions to protect your system and data.
+We hope that this project enhances your gaming experience, but we strongly encourage you to prioritize your network security and take necessary precautions to protect your system and data.
