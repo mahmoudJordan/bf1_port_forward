@@ -2,7 +2,7 @@ Set-Location (Split-Path $MyInvocation.MyCommand.Path)
 
 . .\Set-Mappings.ps1
 
-$json = Get-Content -Path .\ports.json -Raw | ConvertFrom-Json
+$json = Get-Content -Path ..\ports.json -Raw | ConvertFrom-Json
 
 foreach ( $entry in $json)
 {
