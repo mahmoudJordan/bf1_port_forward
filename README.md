@@ -1,6 +1,6 @@
 # games_port_forward
 
-The **port_forward** project provides a PowerShell script that automates UPnP port mapping for Battlefield 1 using UPnPWizardC. By utilizing this script, you can enhance your gaming experience by reducing latency, particularly in online gameplay where low latency and ping are crucial.
+The **port_forward** project provides a PowerShell script that automates UPnP port mapping using UPnPWizardC. By utilizing this script, you can enhance your gaming experience by reducing latency, particularly in online gameplay where low latency and ping are crucial.
 
 To successfully use this script, please ensure that you meet the following requirements:
 
