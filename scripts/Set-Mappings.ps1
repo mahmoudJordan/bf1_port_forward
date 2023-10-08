@@ -2,14 +2,31 @@
 
 function addEntries($portsArray , $ipv4, $TCPUDP , $UpnpWizardFolderPath , $name) {
     Set-Location -Path $UpnpWizardFolderPath
-    foreach ( $entry in $portsArray) {
-        ./UPnPWizardC.exe -add $name -ip $ipv4 -intport $entry -extport $entry -protocol $TCPUDP -lease 2592000 
+    
+    # Define a script block for the job
+    $scriptBlock = {
+        param (
+            $entry, $ipv4, $TCPUDP, $name
+        )
+        ./UPnPWizardC.exe -add $name -ip $ipv4 -intport $entry -extport $entry -protocol $TCPUDP -lease 2592000
     }
+    
+    # Start jobs in parallel
+    $jobs = @()
+    foreach ($entry in $portsArray) {
+        $job = Start-Job -ScriptBlock $scriptBlock -ArgumentList $entry, $ipv4, $TCPUDP, $name -Init ([ScriptBlock]::Create("Set-Location '$pwd'"))
+        $jobs += $job
+    }
+    
+    # Wait for all jobs to complete
+    $jobs | Wait-Job | Receive-Job
+    
+    # Clean up jobs
+    $jobs | Remove-Job
 }
 
 
-function Set-Mappings($tcp , $udp , $name) {
-
+function Set-Mappings([int[]] $tcp , [int[]]$udp ,[String] $name) {
 
     # get current PC netword address
     $ipV4addresses = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandProperty IPV4Address;
