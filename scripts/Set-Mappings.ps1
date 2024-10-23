@@ -8,7 +8,7 @@ function addEntries($portsArray , $ipv4, $TCPUDP , $UpnpWizardFolderPath , $name
         param (
             $entry, $ipv4, $TCPUDP, $name
         )
-        ./UPnPWizardC.exe -add $name -ip $ipv4 -intport $entry -extport $entry -protocol $TCPUDP -lease 2592000
+        ./UPnPWizardC.exe -add $name -ip $ipv4 -boundip $ipv4 -intport $entry -extport $entry -protocol $TCPUDP -lease 2592000
     }
     
     # Start jobs in parallel
@@ -30,7 +30,10 @@ function Set-Mappings([int[]] $tcp , [int[]]$udp ,[String] $name) {
 
     # get current PC netword address
     $ipV4addresses = Test-Connection -ComputerName (hostname) -Count 1  | Select -ExpandProperty IPV4Address;
-    $ipv4 = $ipV4addresses.IPAddressToString;
+    # $ipv4 = $ipV4addresses.IPAddressToString;
+    $ipv4 = "192.168.100.25";
+
+    Write-Host "Local machine IP Address: $ipv4"
 
     # check if UPnP Wizard tool is available 
     $wizardPath = Get-ApplicationPath -ApplicationName "UPnP Wizard"

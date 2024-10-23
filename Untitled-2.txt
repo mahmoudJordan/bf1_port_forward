@@ -1,0 +1,5 @@
+UPnPWizardC.exe -add 'mk11' -ip 192.168.100.25 -auto -intport 27101 -extport 27101 -protocol TCP -lease 0
+UPnPWizardC.exe -add 'mk11' -ip 192.168.100.25 -intport 27101 -extport 27101 -protocol TCP -lease 0
+
+
+UPnPWizardC.exe -listip

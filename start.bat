@@ -3,4 +3,3 @@ cd scripts
 
 powershell.exe ". .\Update-Entries.ps1"
 
-pause
